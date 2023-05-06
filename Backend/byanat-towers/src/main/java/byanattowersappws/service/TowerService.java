@@ -10,5 +10,7 @@ public interface TowerService {
 	public ResponseEntity<Tower> getAllTowers();
 	
 	public Object getTower();
+	
+	public ResponseEntity<Tower> getFilterData(Tower tower);
 
 }

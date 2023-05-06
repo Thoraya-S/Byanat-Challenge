@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import byanattowersappws.model.Tower;
 import byanattowersappws.service.TowerService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")  
@@ -33,6 +34,12 @@ public class TowerController {
 	@GetMapping("allTowers")
 	public Object getTowers(){
 		return towerService.getTower();
+	}
+	
+	@GetMapping("searchTower")
+	public ResponseEntity<Tower> getSearchTower(@RequestBody Tower tower){
+		return towerService.getFilterData(tower);
+		
 	}
 
 }
