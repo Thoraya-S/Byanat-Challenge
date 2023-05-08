@@ -2,10 +2,13 @@ package byanattowersappws.model;
 
 import java.io.Serializable;
 
+import lombok.Data;
+
 
 public class Tower implements Serializable{
 private static final long serialVersionUID = 1L;
 	
+
 	private Integer tower_id;
 	private String operator;
 	private String address; 
@@ -14,6 +17,22 @@ private static final long serialVersionUID = 1L;
 	private Long latitude;
 	private Long longitude;
 	private String technology;
+	
+	public Tower() {}
+	
+	public Tower(Integer testId, Integer tower_id, String operator, String address, Integer height, String tower_type,
+			Long latitude, Long longitude, String technology) {
+		super();
+		this.tower_id = tower_id;
+		this.operator = operator;
+		this.address = address;
+		this.height = height;
+		this.tower_type = tower_type;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.technology = technology;
+	}
+
 	public Integer getTower_id() {
 		return tower_id;
 	}
