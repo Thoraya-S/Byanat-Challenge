@@ -2,7 +2,6 @@ package byanattowersappws.model;
 
 import java.io.Serializable;
 
-import lombok.Data;
 
 
 public class Tower implements Serializable{
