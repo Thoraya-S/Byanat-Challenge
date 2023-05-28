@@ -26,34 +26,20 @@ public class TowerController {
 		return towerService.getTower();
 	}
 	
-	@PostMapping("searchTower")
-	public List<Tower> getSearchTower(@RequestBody Tower tower){
-		return towerService.getSearchTower(tower);
-	}
 
-	//RequestParm 
 	@PostMapping("tower")
-	public List<Tower> getTowersByParameter(@RequestBody Tower tower, 
-			@PathParam("tower_id") Integer tower_id){
-		tower.setTower_id(tower_id);
-		return towerService.getSearchTower(tower);
+	public List<Tower> getTowersByParameter(
+			@PathParam("tower_id") Integer tower_id,
+			@PathParam("operator") String operator, 
+			@PathParam("tower_type") String tower_type,
+			@PathParam("technology") String technology){
+		Tower towerObj = new Tower();
+		towerObj.setTower_id(tower_id);
+		towerObj.setOperator(operator);
+		towerObj.setTower_type(tower_type);
+		towerObj.setTechnology(technology);
+		return towerService.getSearchTower(towerObj);
 		
 	}
-	
-	
-	@GetMapping("tower2")
-	public List<Tower> getTowersByParameter2( 
-			@RequestParam(value ="tower_id", required = false) Integer tower_id,
-			@RequestParam(value ="technology", required = false) String technology){
-		Tower tower = new Tower();
-		tower.setTower_id(tower_id);
-		tower.setTechnology(technology);
-		return towerService.getSearchTower2(tower);
-		
-	}
-	
-	
-	
-	
 
 }
